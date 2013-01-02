@@ -48,5 +48,4 @@ foreach ($videos as $video) {
   echo "\nDownloading $output_name...\n";
   system("curl --progress-bar -o $output_dir/$output_name $video->link");
 
-  die();
 }
