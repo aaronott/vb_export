@@ -25,8 +25,6 @@ if (!$xml instanceof SimpleXMLElement) {
   die("Yeah... something broke and I was unable to load the RSS.");
 }
 
-//print_r($xml);
-
 $videos = $xml->channel->item;
 
 echo "You have " . sizeof($videos) . " videos in the list.\n";
@@ -44,8 +42,6 @@ foreach ($videos as $video) {
 
   $output_name = $filename . "_" . $first_five . "." . $ext;
 
-
   echo "\nDownloading $output_name...\n";
   system("curl --progress-bar -o $output_dir/$output_name $video->link");
-
 }
